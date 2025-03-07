@@ -16,14 +16,27 @@ public class Main {
 
         // Udskriv låneinfo
         System.out.println(udlånAlice.getInfo());
+        try {
+            System.out.println("Fornyr....");
+            Thread.sleep(2000);
+            // Alice fornyer lånet
+            alice.fornyLån(udlånAlice);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        // Alice fornyer lånet
-        alice.fornyLån(udlånAlice);
+        try {
+            System.out.println("Afleverer....");
+            Thread.sleep(2000);
+            alice.afleverLån(udlånAlice);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         // Alice afleverer bogen
-        alice.afleverLån(udlånAlice);
 
         // Udskriv låneinfo igen
-        System.out.println(udlånAlice.getInfo());
+        System.out.println("Info: " + udlånAlice.getInfo());
     }
 }
